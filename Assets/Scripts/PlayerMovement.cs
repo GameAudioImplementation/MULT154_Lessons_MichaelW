@@ -24,6 +24,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        rbPlayer.AddForce(direction, ForceMode.Impulse);
+        rbPlayer.AddForce(direction, ForceMode.Force);
     }
 }
