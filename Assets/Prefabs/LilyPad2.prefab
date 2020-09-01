@@ -12,10 +12,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: LilyPad2
       objectReference: {fileID: 0}
+    - target: {fileID: 1912324418066857268, guid: 97f5cbcd80d704102a41d86a33e209d7,
+        type: 3}
+      propertyPath: driftDirection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1912324418066857271, guid: 97f5cbcd80d704102a41d86a33e209d7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 1912324418066857271, guid: 97f5cbcd80d704102a41d86a33e209d7,
         type: 3}
