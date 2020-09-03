@@ -10,12 +10,23 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 10.0f;
     public GameObject spawnPoint = null;
     private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
-  
+    /* 
+    public AudioClip movementSound;
+    private AudioSource source;
+    public float volLowRange = .5f;
+    public float volHighRange = 1.0f;
+    void Awake () 
+             * {
+             * source = GetComponent<AudioSource>();
+             * }
+             */
     // Start is called before the first frame update
     void Start()
     {
+        
+    
         rbPlayer = GetComponent<Rigidbody>();
-        foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType))
+        foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
         {
             ItemInventory.Add(item, 0);
         }
