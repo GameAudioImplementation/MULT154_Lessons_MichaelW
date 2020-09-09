@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Profiling;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Networking;
@@ -68,15 +67,17 @@ public class PlayerMovement : NetworkBehaviour
 
     private void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
 
         direction = new Vector3(horMove, 0, verMove);
 
-        if (!isLocalPlayer)
-        {
-            return;
-        }
+      
 
         /*
         RaycastHit[] landing = Physics.BoxCastAll(transform.position, 1f, transform.forward, 0f, lilyMask);
@@ -101,6 +102,10 @@ public class PlayerMovement : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         rbPlayer.AddForce(direction * speed, ForceMode.Force);
         if(transform.position.z > 40)
         {
