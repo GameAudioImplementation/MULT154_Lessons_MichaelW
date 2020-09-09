@@ -10,7 +10,8 @@ public class PlayerMovement : NetworkBehaviour
     private Rigidbody rbPlayer;
     private Vector3 direction = Vector3.zero;
     public float speed = 10.0f;
-    public GameObject spawnPoint = null;
+    public GameObject[]spawnPoints = null;
+
     private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
     
     public AudioClip movementSound;
@@ -36,9 +37,13 @@ public class PlayerMovement : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!isLocalPlayer)
+        {
+            return;
+        }
     
         rbPlayer = GetComponent<Rigidbody>();
+        spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
         foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
         {
             ItemInventory.Add(item, 0);
@@ -67,6 +72,12 @@ public class PlayerMovement : NetworkBehaviour
         float verMove = Input.GetAxis("Vertical");
 
         direction = new Vector3(horMove, 0, verMove);
+
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         /*
         RaycastHit[] landing = Physics.BoxCastAll(transform.position, 1f, transform.forward, 0f, lilyMask);
         if(landing.Length > 0)
@@ -85,7 +96,7 @@ public class PlayerMovement : NetworkBehaviour
             }
         }*/
     }
-        
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -102,12 +113,22 @@ public class PlayerMovement : NetworkBehaviour
     }
     private void Respawn()
     {
-        rbPlayer.MovePosition(spawnPoint.transform.position);
+        int index = 0;
+        while(Physics.CheckBox(spawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
+        {
+            index++;
+        }
+        rbPlayer.MovePosition(spawnPoints[index].transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Item"))
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        if (other.CompareTag("Item"))
         {
             Item item = other.gameObject.GetComponent<Item>();
             AddToInventory(item);
@@ -125,7 +146,12 @@ public class PlayerMovement : NetworkBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Hazard"))
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
+        if (other.CompareTag("Hazard"))
         {
             Respawn();
         }
