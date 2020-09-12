@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Networking;
-//layer vs tag
+//client network dev build not working. carrots text box diff location
 public class PlayerMovement : NetworkBehaviour
 {
     private Rigidbody rbPlayer;
@@ -11,7 +11,7 @@ public class PlayerMovement : NetworkBehaviour
     public float speed = 10.0f;
     public GameObject[]spawnPoints = null;
 
-    private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
+
     
     public AudioClip movementSound;
     private AudioSource source;
@@ -32,7 +32,7 @@ public class PlayerMovement : NetworkBehaviour
     {
              source = GetComponent<AudioSource>();
     }
-             
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,14 +40,10 @@ public class PlayerMovement : NetworkBehaviour
         {
             return;
         }
-    
+
         rbPlayer = GetComponent<Rigidbody>();
         spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
-        foreach(Item.VegetableType item in System.Enum.GetValues(typeof(Item.VegetableType)))
-        {
-            ItemInventory.Add(item, 0);
-        }
-    }
+    } 
 
     private void AddToInventory(Item item)
     {
@@ -76,8 +72,6 @@ public class PlayerMovement : NetworkBehaviour
         float verMove = Input.GetAxis("Vertical");
 
         direction = new Vector3(horMove, 0, verMove);
-
-      
 
         /*
         RaycastHit[] landing = Physics.BoxCastAll(transform.position, 1f, transform.forward, 0f, lilyMask);
@@ -133,13 +127,6 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        if (other.CompareTag("Item"))
-        {
-            Item item = other.gameObject.GetComponent<Item>();
-            AddToInventory(item);
-            PrintInventory();
-
-        }
         if (other.CompareTag("Hazard"))
         {
             audioS.PlayOneShot(splashSound);
@@ -148,7 +135,9 @@ public class PlayerMovement : NetworkBehaviour
         {
             auxInSnapshot.TransitionTo(0.5f);
         }
+ 
     }
+ 
     private void OnTriggerExit(Collider other)
     {
         if (!isLocalPlayer)
