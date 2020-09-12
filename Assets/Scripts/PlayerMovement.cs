@@ -45,22 +45,7 @@ public class PlayerMovement : NetworkBehaviour
         spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
     } 
 
-    private void AddToInventory(Item item)
-    {
-        ItemInventory[item.typeOfVeggie]++;
-    }
-
-    private void PrintInventory()
-    {
-        string output = "";
-
-        foreach(KeyValuePair<Item.VegetableType, int> kvp in ItemInventory)
-        {
-            output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
-        }
-        Debug.Log(output);
-    }
-
+   
     private void Update()
     {
         if (!isLocalPlayer)
