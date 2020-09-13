@@ -11,7 +11,8 @@ public class CountGUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        tmProElem = GetComponent<TextMeshProUGUI>();
+
     }
 
     // Update is called once per frame

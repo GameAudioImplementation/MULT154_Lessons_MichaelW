@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8450775013453412529}
   - component: {fileID: -6201363252948660405}
   - component: {fileID: -4817767041068974303}
+  - component: {fileID: 1277289677031517905}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  spawnPoint: {fileID: 0}
+  spawnPoints: []
   movementSound: {fileID: 0}
   splashSound: {fileID: 8300000, guid: ff6dab6243af5467ea059ba2cb96dd71, type: 3}
   veggieSound: {fileID: 0}
@@ -292,3 +293,15 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &1277289677031517905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8450775013453412534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aae101a3d80347c1837698e8d2d08ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
