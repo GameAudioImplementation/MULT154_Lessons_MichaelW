@@ -3,7 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Networking;
-//what does question mark do <QUESTION MARK>
+//<> brackets vs ()
+//Vector3.zero
+//why return exits method
+//variables vs objects. Is rbplayer a variable or object?
+/*ClassNm objDeclr = new classNm();
+objDeclr.functionInClass();
+build vs compile
+debug.log() vs visual studio debugger/unity console errors
+what does "this" mean in the gameobjects "autos"
+*/
+
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -15,10 +25,10 @@ public class PlayerMovement : NetworkBehaviour
 
     
     public AudioClip movementSound;
-    private AudioSource source;
     public AudioClip splashSound;
     public AudioClip veggieSound;
     public AudioSource audioS;
+    private AudioSource source;
     public float volLowRange = .5f;
     public float volHighRange = 1.0f;
     public AudioMixerSnapshot idleSnapshot;

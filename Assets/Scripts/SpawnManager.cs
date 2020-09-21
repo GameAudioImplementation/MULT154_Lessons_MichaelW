@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-
+//did we create tempLilyPad and lilyPad here or in Unity editor 
 public class SpawnManager : NetworkBehaviour
 {
     public GameObject [] lilyPadObjs= null;

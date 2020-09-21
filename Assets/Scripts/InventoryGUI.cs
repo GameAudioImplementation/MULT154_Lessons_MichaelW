@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//why did we not have to do obj
 
 public class InventoryGUI : MonoBehaviour
 {

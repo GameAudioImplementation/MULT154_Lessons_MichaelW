@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-//Where is ItemType defined?
 //item.typeOfVeggie item is called like a method? how connected to typeOfVeggie
+//delegate
+//foreach "typeof()"
+//why don't we declare CollectItem variable/reference
+//where is ItemInventory coming from
+//static cannot be used in other classes but is persistent?
+//what is event?
 public class ItemCollect : NetworkBehaviour
 {
     private Dictionary<Item.VegetableType, int> ItemInventory = new Dictionary<Item.VegetableType, int>();
 
-    public delegate void CollectItem(Item.VegetableType item);
+    //delegate allows function to be used like variable
+    public delegate void CollectItem(Item.VegetableType item); //Delares delegate type and parameters
     public static event CollectItem ItemCollected;
 
     Collider itemCollider = null;
@@ -21,10 +27,10 @@ public class ItemCollect : NetworkBehaviour
             ItemInventory.Add(item, 0);
         }
     }
-
-    private void AddToInventory(Item item)
+    
+    private void AddToInventory(Item apple)
     {
-        ItemInventory[item.typeOfVeggie]++;
+        ItemInventory[apple.typeOfVeggie]++;
     }
 
     // Update is called once per frame
@@ -84,9 +90,9 @@ public class ItemCollect : NetworkBehaviour
             return;
         }
 
-        if (other.CompareTag("Item") && Input.GetKeyDown(KeyCode.Space))
+        if (other.CompareTag("Item"))
         {
-            itemCollider = other;
+            itemCollider = null;
         }
     }
 
