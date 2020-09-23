@@ -512,7 +512,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472362986}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -714,8 +714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfVeggie: 0
-  total: 0
-  total2: 0
 --- !u!1 &952501323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,8 +1657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfVeggie: 1
-  total: 0
-  total2: 0
 --- !u!135 &1404657963
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2204,8 +2200,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfVeggie: 2
-  total: 0
-  total2: 0
 --- !u!135 &1715072859
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2654,8 +2648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeOfVeggie: 0
-  total: 0
-  total2: 0
 --- !u!135 &2024181651
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class SpawnManager : NetworkBehaviour
     // Start is called before the first frame update
     public override void OnStartServer()
     {
+        int a = 1;
         InvokeRepeating("SpawnLilyPad", 2.0f, 5.0f);  
     }
 

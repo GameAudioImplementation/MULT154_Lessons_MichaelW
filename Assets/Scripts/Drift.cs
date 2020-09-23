@@ -48,13 +48,15 @@ public class Drift : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision apple)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (apple.gameObject.CompareTag("Player"))
         {
-            GameObject child = collision.gameObject;
+            GameObject child = apple.gameObject;
             child.transform.SetParent(null);
         }
+
     }
+
 
 }
