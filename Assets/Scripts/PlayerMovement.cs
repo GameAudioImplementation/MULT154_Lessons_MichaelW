@@ -12,6 +12,7 @@ objDeclr.functionInClass();
 build vs compile
 debug.log() vs visual studio debugger/unity console errors
 what does "this" mean in the gameobjects "autos"
+escape key is not working to quit game
 */
 
 
@@ -88,8 +89,16 @@ public class PlayerMovement : NetworkBehaviour
         }*/
     }
 
+    void OnDrawGizmos()
+    {
+     /* Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, direction * 10);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawRay(transform.position, rbPlayer.velocity * 5); */
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(transform.position, new Vector3(6, 6, 6));
+    }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!isLocalPlayer)
