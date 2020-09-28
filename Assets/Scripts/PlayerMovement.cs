@@ -91,10 +91,10 @@ public class PlayerMovement : NetworkBehaviour
 
     void OnDrawGizmos()
     {
-     /* Gizmos.color = Color.blue;
+        Gizmos.color = Color.blue;
         Gizmos.DrawRay(transform.position, direction * 10);
         Gizmos.color = Color.magenta;
-        Gizmos.DrawRay(transform.position, rbPlayer.velocity * 5); */
+        Gizmos.DrawRay(transform.position, rbPlayer.velocity * 5);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position, new Vector3(6, 6, 6));
     }
@@ -123,6 +123,7 @@ public class PlayerMovement : NetworkBehaviour
             index++;
         }
         rbPlayer.MovePosition(spawnPoints[index].transform.position);
+        rbPlayer.velocity = Vector3.zero;
     }
 
     private void OnTriggerEnter(Collider other)
