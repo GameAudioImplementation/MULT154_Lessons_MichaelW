@@ -7,7 +7,7 @@
     <key>CFBundleExecutable</key>
     <string>test</string>
     <key>CFBundleGetInfoString</key>
-    <string>Unity Player version 2019.4.7f1 (e992b1a16e65). (c) 2020 Unity Technologies ApS. All rights reserved.</string>
+    <string>Unity Player version 2019.4.11f1 (2d9804dddde7). (c) 2020 Unity Technologies ApS. All rights reserved.</string>
     <key>CFBundleIconFile</key>
     <string>PlayerIcon.icns</string>
     <key>CFBundleIdentifier</key>
@@ -40,6 +40,6 @@
     <key>NSPrincipalClass</key>
     <string>PlayerApplication</string>
     <key>UnityBuildNumber</key>
-    <string>e992b1a16e65</string>
+    <string>2d9804dddde7</string>
   </dict>
 </plist>

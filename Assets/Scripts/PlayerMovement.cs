@@ -6,11 +6,11 @@ using UnityEngine.Networking;
 //<> brackets vs ()
 //Vector3.zero
 //why return exits method
-//variables vs objects. Is rbplayer a variable or object?
+
 /*ClassNm objDeclr = new classNm();
 objDeclr.functionInClass();
 build vs compile
-debug.log() vs visual studio debugger/unity console errors
+
 what does "this" mean in the gameobjects "autos"
 escape key is not working to quit game
 */
@@ -53,7 +53,7 @@ public class PlayerMovement : NetworkBehaviour
             return;
         }
 
-        rbPlayer = GetComponent<Rigidbody>();
+        rbPlayer = GetComponent<Rigidbody>(); //why is this not rbPlayer = Component(); rbPlayer.GetComponent<Rigidbody>();
         spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
     } 
 
